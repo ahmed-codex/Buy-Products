@@ -111,8 +111,8 @@ var toggle_cart = document.getElementById("toggle_cart");
 var totalPrice = document.getElementById("totalPrice")
 var show = document.getElementById("show")
 var cart_num = document.getElementById("cart_num")
+var shopping = document.getElementById("shopping")
 
-var num = 0;
 function updateTotalPrice(){ 
 
    let total =0
@@ -126,7 +126,17 @@ function updateTotalPrice(){
 
    totalPrice.classList.remove("d-none")
    totalPrice.classList.add("d-block")
-   totalPrice.innerHTML = "TotalePrice: $" + total;
+   if(total === 0){
+      totalPrice.innerHTML = "Cart is empty";
+      totalPrice.classList.remove("bg-success")
+      totalPrice.classList.add("bg-light")
+      
+   }
+   else{
+      totalPrice.innerHTML = "TotalePrice: $" + total;
+      totalPrice.classList.remove("bg-light")
+      totalPrice.classList.add("bg-success")
+   }
 }
 
 function updateCartNum(){ 
@@ -135,13 +145,12 @@ function updateCartNum(){
    let products = toggle_cart.querySelectorAll(".cart-product")
    products.forEach(function(item){
       let count = parseInt(item.querySelector(".qty").dataset.count)
-
       num += count 
    })
-
-  
    cart_num.innerHTML =  num;
 }
+
+
 
 cards.forEach(function(item) {
   let btn = item.querySelector(".add-cart");
@@ -156,10 +165,13 @@ cards.forEach(function(item) {
    
    })
 
+   shopping.addEventListener("click" , function(){
+      show.classList.toggle("d-none")
+      show.classList.toggle("d-block")
+})
+
   btn.addEventListener("click", function(event) {
     event.preventDefault();
-
-   
 
    var existingProduct = toggle_cart.querySelector(`[data-name="${name}"]`);
    
@@ -193,11 +205,10 @@ cards.forEach(function(item) {
       btn.classList.remove("btn-primary")
       btn.classList.add("btn-danger")
       btn.innerHTML = "Remove from cart"
-      show.classList.remove("d-none")
-      show.classList.add("d-block")
+      
 
       productCard.innerHTML = `
-      <div class="d-flex justify-content-between" style="width: 10rem;">
+      <div class="d-flex justify-content-between" data-name="${name}" style="width: 10rem;">
          <h5 class="w-50 name">${name}</h5>
          <p class="w-50 ml-4">price: <br> ${price}$</p>
       </div>
@@ -238,8 +249,7 @@ cards.forEach(function(item) {
             btn.classList.remove("btn-danger") 
             btn.classList.add("btn-primary") 
             btn.innerHTML="Add to cart"
-            show.classList.remove("d-block")
-            show.classList.add("d-none")
+            
          }
         updateTotalPrice()
         updateCartNum()
@@ -249,8 +259,13 @@ cards.forEach(function(item) {
        updateCartNum()
 
    }
+
   });
 });
+
+
+
+
 
 
 

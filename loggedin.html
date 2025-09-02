@@ -18,8 +18,8 @@
                 <a class="navbar-brand"><img src="imgs/accessories/E__1_-removebg-preview.png" height="80" alt="Logo"></a>
                 <form class="form-inline">
                     <p class="text-capitalize mt-3 mr-3" style="font-size: 18px;" id="Loggedin-hello"></p>
-                    <a class="text-primary mx-3 my-2 my-sm-0" href="" style="font-size: 20px;"><i class="fa-solid fa-cart-shopping"></i> <span id="cart_num"></span></a>
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="index.html">LogOut</a>
+                    <a class="text-primary mx-3 my-2 my-sm-0 " id="shopping" style="font-size: 20px;"><i class="fa-solid fa-cart-shopping"></i> <span id="cart_num"></span></a>
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href="index.html">LogOut</a>
                 </form>
             </nav>
         </div>
@@ -29,14 +29,14 @@
     <main><!-- section search -->
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-3">
                     <select id="searchType" class="form-control">
                         <option value="name">Search by Product Name</option>
                         <option value="category">Search by Category</option>
                     </select>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-7 col-9">
                     <input class="form-control mr-sm-2 " id="search-box" type="search" placeholder="Search" aria-label="Search">
                 </div>
                 
@@ -49,7 +49,7 @@
 
     <section> <!-- section card -->
         <div class="container mt-5">
-            <div class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-between m-auto">
                 <div class="m-2">
                     <div class="card" style="width: 21rem;" >
                         <img src="imgs/accessories/686d4a051c21359b7577ee191b02fb70.jpg" class="card-img-top" style="height: 21.25rem;" alt="...">
@@ -154,7 +154,7 @@
                 </div>
                 <div class="m-2">
                     <div class="card" style="width: 21rem;" >
-                        <img src="imgs/accessories/dfbfbdd57d1443f984aa72a7ead67e37.jpg" class="card-img-top" style="height: 21.25rem;" alt="...">
+                        <img src="imgs/accessories/2a384379039c5e05bd5905edc657e93c.jpg" class="card-img-top" style="height: 21.25rem;" alt="...">
                         <div class="card-body text-center">
                             <h5 class="card-title" name="Golden set bracelet">Golden set bracelet</h5>
                             <p class="card-text price" price="300">Price: $300</p>
@@ -169,11 +169,11 @@
         </div>
 
         <div class="card position-absolute p-1 d-none " id="show" style="width: 11rem; top:16%; right: 10px;">
-            <div class=" pt-2 " id="toggle_cart">
-                <!-- <p class="cart-empty">Your cart is empty.</p> -->
+            <div class="  " id="toggle_cart">
+                 
             </div>
-            <div id="totalPrice" class="bg-success text-center d-none" style="font-weight: bold; font-size: 18px; margin-top: 10px; width: 100%; height: 3.125rem; line-height: 3.125rem;">
-                
+            <div id="totalPrice" class="bg-light text-center" style="font-weight: bold; font-size: 18px; width: 100%; height: 3.125rem; line-height: 3.125rem;">
+                Cart is empty
             </div>
         </div>
     </section>
